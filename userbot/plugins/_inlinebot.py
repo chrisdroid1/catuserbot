@@ -11,6 +11,8 @@ from telethon import Button, custom, events
 from . import CMD_LIST, catalive
 
 CAT_IMG = Config.ALIVE_PIC or None
+PIC = list(Config.ALIVE_PIC)
+CAT = random.choice(PIC)
 TEXT_TO_DISPLAY_IN_HELP = (
     Config.TEXT_TO_DISPLAY_IN_HELP
     or "Yeh mera maal hai !! Haat kese laga diya be tune ise? \n\nNikal, jaake apna catuserbot bana..."
@@ -33,7 +35,7 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                     Button.url("Repo", "https://github.com/Jisan09/catuserbot"),
                 )
             ]
-            if CAT_IMG and CAT_IMG.endswith((".jpg", ".png")):
+            if CAT_IMG and CAT.endswith((".jpg", ".png")):
                 result = builder.photo(
                     CAT_IMG,
                     # title="Alive cat",
@@ -41,8 +43,6 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                     buttons=buttons,
                 )
             elif CAT_IMG:
-                PIC = list(Config.ALIVE_PIC)
-                CAT = random.choice(PIC)
                 result = builder.document(
                     CAT,
                     title="Alive cat",
