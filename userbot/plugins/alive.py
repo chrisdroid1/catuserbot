@@ -8,7 +8,7 @@ from . import StartTime, catversion, get_readable_time, hmention, mention, reply
 
 CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✮ MY BOT IS RUNNING SUCCESSFULLY ✮"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "✧✧"
-
+CAT_IMG = Config.ALIVE_PIC or None
 
 @bot.on(admin_cmd(outgoing=True, pattern="alive$"))
 @bot.on(sudo_cmd(pattern="alive$", allow_sudo=True))
@@ -18,9 +18,9 @@ async def amireallyalive(alive):
     reply_to_id = await reply_id(alive)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    CAT = list(Config.ALIVE_PIC)
-    CAT_IMG = random.choice(CAT)
     if CAT_IMG:
+        CAT = list(CAT_IMG)
+        CAT_IMG = random.choice(CAT)
         cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
         cat_caption += f"<b>{EMOJI} Master : {hmention}</b>\n"
         cat_caption += f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
