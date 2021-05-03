@@ -4,7 +4,7 @@ import math
 import os
 import re
 import time
-
+import random
 from telethon import Button, custom, events
 
 from . import CMD_LIST, catalive
@@ -40,8 +40,10 @@ if Config.TG_BOT_USERNAME is not None and tgbot is not None:
                     buttons=buttons,
                 )
             elif CAT_IMG:
+                PIC = list(Config.ALIVE_PIC)
+                CAT = random.choice(PIC)
                 result = builder.document(
-                    CAT_IMG,
+                    CAT,
                     title="Alive cat",
                     text=query,
                     buttons=buttons,
