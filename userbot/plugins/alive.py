@@ -1,11 +1,11 @@
 import time
+import random
 from platform import python_version
 
 from telethon import version
 
 from . import StartTime, catversion, get_readable_time, hmention, mention, reply_id
 
-CAT_IMG = Config.ALIVE_PIC
 CUSTOM_ALIVE_TEXT = Config.CUSTOM_ALIVE_TEXT or "✮ MY BOT IS RUNNING SUCCESSFULLY ✮"
 EMOJI = Config.CUSTOM_ALIVE_EMOJI or "✧✧"
 
@@ -18,6 +18,8 @@ async def amireallyalive(alive):
     reply_to_id = await reply_id(alive)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
+    CAT= (list(Config.ALIVE_PIC))
+    CAT_IMG = random.choice(CAT)
     if CAT_IMG:
         cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
         cat_caption += f"<b>{EMOJI} Master : {hmention}</b>\n"
