@@ -20,8 +20,8 @@ async def amireallyalive(alive):
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
     if CAT_IMG:
-        CAT = list(CAT_IMG)
-        CAT_IMG = random.choice(CAT)
+        PIC = list(Config.ALIVE_PIC)
+        CAT = random.choice(PIC)
         cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
         cat_caption += f"<b>{EMOJI} Master : {hmention}</b>\n"
         cat_caption += f"<b>{EMOJI} Uptime :</b> <code>{uptime}</code>\n"
@@ -38,7 +38,7 @@ async def amireallyalive(alive):
         cat_caption += "    <a href = https://github.com/sandy1709/catuserbot><b>GoodCat</b></a> | <a href = https://github.com/Jisan09/catuserbot><b>BadCat</b></a> | <a href = https://t.me/catuserbot_support><b>Support</b></a>"
         await alive.client.send_file(
             alive.chat_id,
-            CAT_IMG,
+            CAT,
             caption=cat_caption,
             parse_mode="html",
             reply_to=reply_to_id,
