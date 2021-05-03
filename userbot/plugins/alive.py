@@ -1,5 +1,5 @@
-import time
 import random
+import time
 from platform import python_version
 
 from telethon import version
@@ -18,7 +18,7 @@ async def amireallyalive(alive):
     reply_to_id = await reply_id(alive)
     uptime = await get_readable_time((time.time() - StartTime))
     _, check_sgnirts = check_data_base_heal_th()
-    CAT= (list(Config.ALIVE_PIC))
+    CAT = list(Config.ALIVE_PIC)
     CAT_IMG = random.choice(CAT)
     if CAT_IMG:
         cat_caption = f"<b>{CUSTOM_ALIVE_TEXT}</b>\n\n"
