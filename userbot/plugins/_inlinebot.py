@@ -2,9 +2,10 @@ import io
 import json
 import math
 import os
+import random
 import re
 import time
-import random
+
 from telethon import Button, custom, events
 
 from . import CMD_LIST, catalive
